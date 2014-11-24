@@ -43,13 +43,17 @@ public class FractionCalculatorTest {
         FractionCalculator n = new FractionCalculator(1,8);
 
         FractionCalculator p = new FractionCalculator(21,0);
+        FractionCalculator o = new FractionCalculator( 10,10);
+        FractionCalculator q = new FractionCalculator( 10,2);
+        FractionCalculator r = new FractionCalculator( 10,1);
+        FractionCalculator s = new FractionCalculator( 10,7);
 
         String test1 = "1/2 / 4/2 * 8/3";
         String test2 = "1/2 + 2/3 * 1/2";
         String test3 = "2/3 * 2/1 + 1/2";
-        String test4 = "1/2 * 1/2 * 1/2";
-        String test5 = "1/2 + 4,2 + 1,8";
-        String test6 = "A fraction";
+        String test4 = "10/10 - 10/2 - 10/1";
+
+
 
         // the if statements below check if the values of the fraction objects get passed successfully within the
         // FractionCalculator and if the if statements and methods correctly calculated the sum and called methods.
@@ -84,6 +88,11 @@ public class FractionCalculatorTest {
 
         if (!n.equals(g.multiply(g).multiply(g)))
         {System.out.println(" Multiply test failed ");}// tests if the 3 operands multiplied give the correct value.
+
+
+        System.out.println("Test 4:  "+ g.evaluate(g, test4));// tests the divide operator on the fractions and that the result of the sum is correct.
+        if (!s.equals(o.divide(q).divide(r))){System.out.println(" divide test failed ");}
+        System.out.println(o.divide(q).divide(r));
 
 
 
