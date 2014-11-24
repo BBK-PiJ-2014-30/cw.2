@@ -9,13 +9,15 @@ public class FractionCalculatorTest {
     public static FractionCalculator fr2;
     public static FractionCalculator fr3;
     public static FractionCalculator fr4;
-    public static int f1; //
+
+    public static int f1; //integer variables for fraction objects
     public static int f1_;
     public static int f2;
     public static int f2_;
     public static int f3;
     public static int f3_;
-    public static String a;
+
+    public static String data;// typed string from user
 
 
     public static void main(String[] args) {
@@ -40,10 +42,15 @@ public class FractionCalculatorTest {
         FractionCalculator m = new FractionCalculator(-2,-2);
         FractionCalculator n = new FractionCalculator(1,8);
 
+        FractionCalculator p = new FractionCalculator(21,0);
+
         String test1 = "1/2 / 4/2 * 8/3";
         String test2 = "1/2 + 2/3 * 1/2";
         String test3 = "2/3 * 2/1 + 1/2";
         String test4 = "1/2 * 1/2 * 1/2";
+        String test5 = "1/2 + 4,2 + 1,8";
+        String test6 = "A fraction";
+
         // the if statements below check if the values of the fraction objects get passed successfully within the
         // FractionCalculator and if the if statements and methods correctly calculated the sum and called methods.
         // the call to the evaluate function below test if the string is correctly in fraction objects and the right
@@ -63,8 +70,9 @@ public class FractionCalculatorTest {
 
         System.out.println("Test 2 "+ g.evaluate(g, test2));// test should equal 5/6. Tests if order of operation is
         // correctly followed in that the sum equals the correct value. if the case return a true value.
+
         if (!k.equals(k.absValue(k)))
-        {System.out.println(" if the object k doesn't equal the value of the currently held calculator. Test failed ");}
+        {System.out.println(" Absolute value test failed");}
         //Current value in calculator 5/6. Test fails if absolute value does not equal 5/6.
 
         System.out.println("Test 3: " + g.evaluate(g, test3));
@@ -73,17 +81,22 @@ public class FractionCalculatorTest {
         // and it's values as arguments. test should also equal 2/3.
 
 
-        System.out.println(g.evaluate(g, test4));
-        if (n.equals(g.multiply(g).multiply(g)))
-        {System.out.println(" test failed ");}// tests if the 3 operands multiplied give the correct value.
+
+        if (!n.equals(g.multiply(g).multiply(g)))
+        {System.out.println(" Multiply test failed ");}// tests if the 3 operands multiplied give the correct value.
 
 
 
-        if( ! n.equals(m.absValue(g.multiply(g).multiply(g))))
-        {System.out.println(" Test failed");}// checking if the absValue gives the correct result to the multiplication.
 
-        if( ! m.equals(m.absValue(m.add(m).add(m))))
-        {System.out.println(" Test failed");}// checking that the method also works with negative numbers.
+
+
+
+
+
+
+
+
+
 
 
 
@@ -114,22 +127,22 @@ public class FractionCalculatorTest {
 
 
 
-         a = input.nextLine();
-        while (!a.contains("quit") || !a.equals("q")) {
+         data = input.nextLine();
+        while (!data.contains("quit") || !data.equals("q")) {
 
 
-            b = a.substring(0, a.indexOf(" ")); // inputted string spilt to store first fraction
-            op1 = a.substring(b.length() + 1, b.length() + 2);//  stores the string for the first operator
-            op2 = a.substring(b.length() + 3, a.lastIndexOf("/"));// string contains the second operator and second fraction
-            b8 = a.substring(a.lastIndexOf(" "));// spilt string stores last fraction
-            b4 = a.substring(op2.length() + 5, a.length());
+            b = data.substring(0, data.indexOf(" ")); // inputted string spilt to store first fraction
+            op1 = data.substring(b.length() + 1, b.length() + 2);//  stores the string for the first operator
+            op2 = data.substring(b.length() + 3, data.lastIndexOf("/"));// string contains the second operator and second fraction
+            b8 =  data.substring(data.lastIndexOf(" "));// spilt string stores last fraction
+            b4 =  data.substring(op2.length() + 5, data.length());
 
 
 
 
 
             fra1 = b.substring(0, b.indexOf("/"));                        // fraction one: numerator   extracted from the split strings
-            fra1_ = b.substring(b.indexOf("/") + 1, a.indexOf(" "));      // fraction one: denominator extracted from the split strings
+            fra1_ = b.substring(b.indexOf("/") + 1, data.indexOf(" "));   // fraction one: denominator extracted from the split strings
 
             fra2 = op2.substring(0, op2.indexOf("/"));                    // fraction two: numerator   extracted from the split strings
             fra2_ = op2.substring(fra2.length() + 1, op2.indexOf(" "));   // fraction two: numerator   extracted from the split strings
@@ -290,61 +303,61 @@ public class FractionCalculatorTest {
             System.out.println(" please type in another sum or any other relevant input:");
 
 
-            a = input.nextLine();
+            data = input.nextLine();
 
 
-            if (a.equals("c") | a.equals("C") | a.contains("Clear") | a.contains("CLEAR")) {
+            if (data.equals("c") | data.equals("C") | data.contains("Clear") | data.contains("CLEAR")) {
                 fr3.setToZero();
                 System.out.println("fraction 1 " + fr3);
 
-                a = input.nextLine();
+                data = input.nextLine();
 
             }
-            if (a.contains("A whole number")) {
+            if (data.contains("A whole number")) {
 
 
                 System.out.println(fr3.aWholeNumber(fr3));
                 System.out.println("you may type another sum");
-                a = input.nextLine();
+                data = input.nextLine();
             }
 
-            if (a.equals("n") || a.equals("N") || a.contains("neg")) {
+            if (data.equals("n") || data.equals("N") || data.contains("neg")) {
                 System.out.print(" current fraction: " + fr3);
                 System.out.print(" fraction sign changed: " + fr3.Neg(fr3));
                 System.out.println("you may type another sum");
-                a = input.nextLine();
+                data = input.nextLine();
             }
 
 
-            if (a.contains("anything else")) {
+            if (data.contains("anything else")) {
                 fr3.setToZero();
 
             }
 
 
-            if (a.contains("A fraction")) {
+            if (data.contains("A fraction")) {
 
 
                 if (op2.contains("+")) {
 
                     System.out.println(fr3.add(fr2));
                     System.out.println("you may type another sum");
-                    a = input.nextLine();
+                    data = input.nextLine();
                 }
                 if (op2.contains("*")) {
                     System.out.println(fr3.multiply(fr2));
                     System.out.println("you may type another sum");
-                    a = input.nextLine();
+                    data = input.nextLine();
                 }
                 if (op2.contains("-")) {
                     System.out.println(fr3.subtract(fr2));
                     System.out.println("you may type another sum");
-                    a = input.nextLine();
+                    data = input.nextLine();
                 }
                 if (op2.contains("/")) {
                     System.out.print(fr3.divide(fr2));
                     System.out.println("you may type another sum");
-                    a = input.nextLine();
+                    data = input.nextLine();
                 }
 
 

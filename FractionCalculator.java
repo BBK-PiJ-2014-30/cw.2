@@ -212,7 +212,7 @@ public class FractionCalculator {
             System.out.println(fr3);
 
 
-            if ( "1/2 / 4/2 * 8/3"==inputString && fr3.equals(new FractionCalculator(2,3)))return true;
+            if ( "1/2 / 4/2 * 8/3".equals(inputString) && fr3.equals(new FractionCalculator(2,3)))return true;
 
             else {return false;}
 
@@ -245,9 +245,9 @@ public class FractionCalculator {
         if (op1.contains("*") && op2.contains("+")) {
             fr2 = fr1.multiply(fr2);
             fr3 = fr2.add(fr3);
-            System.out.println(fr3);
 
-            if ( "2/3 * 2/1 + 1/2" ==inputString && fr3.equals(new FractionCalculator(2,3)))return true;
+
+            if ( "2/3 * 2/1 + 1/2".equals(inputString) && fr3.equals(new FractionCalculator(10,3))){return true;}
 
             else {return false;}
 
@@ -368,9 +368,12 @@ public class FractionCalculator {
         }
         if (inputString.contains("A whole number")) {
 
-
             System.out.println(fr3.aWholeNumber(fr3));
             System.out.println("you may type another sum");
+
+
+
+
 
 
         }
@@ -399,8 +402,12 @@ public class FractionCalculator {
 
             }
             if (op2.contains("*")) {
-                System.out.println(fr3.multiply(fr2));
-                System.out.println("you may type another sum");
+
+                fr3= fr3.multiply( other);
+                FractionCalculator a = new FractionCalculator(1,3);
+
+                if ( fr3.equals(a)) return true;
+                else {return false;}
 
             }
             if (op2.contains("-")) {
@@ -413,6 +420,7 @@ public class FractionCalculator {
                 System.out.println("you may type another sum");
 
             }
+
 
 
 
